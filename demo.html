@@ -33,7 +33,22 @@ pre{
 
 <pre><code class='language-xml'>&lt;hoge&gt;
 &lt;html a="bcd"&gt;
+&lt;!-- aaaa --&gt;
+&lt;!-- xxxx
+yyyy --&gt; --&gt;
 hogehoge
+
+// aa
+var a = 1;
+&lt;script&gt;
+// aa
+function hoge(){
+  var a = 1;
+  console.log("aa");
+}
+hoge();
+&lt;/script&gt;
+
 &lt;/html&gt;
 &lt;/hoge&gt;
 </code></pre>
@@ -42,6 +57,16 @@ hogehoge
 @{
     ViewBag.Title = "Details";
 }
+
+&lt;!-- aaaa --&gt;
+&lt;!-- xxxx
+yyyy --&gt; --&gt;
+
+aaaa
+{* bb
+cc *}
+bbbb
+
 &lt;h2&gt;Details&lt;/h2&gt;
 &lt;div&gt;
     &lt;h4&gt;Comment&lt;/h4&gt;
@@ -50,10 +75,6 @@ hogehoge
         &lt;dt&gt;
             @Html.DisplayNameFor(model =&gt; model.UserName)
         &lt;/dt&gt;
-
-        &lt;dd&gt;
-            @Html.DisplayFor(model =&gt; model.UserName)
-        &lt;/dd&gt;
     &lt;/dl&gt;
 &lt;/div&gt;
 &lt;p&gt;
