@@ -125,6 +125,13 @@ function(hljs) {
           relevance: 10
         }
       ),
+      hljs.COMMENT(
+        '@{',
+        '}',
+        {
+          relevance: 10
+        }
+      ),
       hljs.COMMENT('{\\*', '\\*}'), // C_BLOCK_COMMENT_MODE の真似
       hljs.COMMENT(
         '///',
