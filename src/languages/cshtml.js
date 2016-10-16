@@ -5,6 +5,41 @@ Category: common, aspnet
 */
 
 function(hljs) {
+  // ---------------------------------------- //
+  // XML
+  // ---------------------------------------- //
+  var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
+  var TAG_INTERNALS = {
+    endsWithParent: true,
+    illegal: /</,
+    relevance: 0,
+    contains: [
+      {
+        className: 'attr',
+        begin: XML_IDENT_RE,
+        relevance: 0
+      },
+      {
+        begin: /=\s*/,
+        relevance: 0,
+        contains: [
+          {
+            className: 'string',
+            endsParent: true,
+            variants: [
+              {begin: /"/, end: /"/},
+              {begin: /'/, end: /'/},
+              {begin: /[^\s"'=<>`]+/}
+            ]
+          }
+        ]
+      }
+    ]
+  };
+
+  // ---------------------------------------- //
+  // C#
+  // ---------------------------------------- //
   var KEYWORDS = {
     keyword:
       // Normal keywords.
