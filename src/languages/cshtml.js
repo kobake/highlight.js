@@ -114,9 +114,18 @@ function(hljs) {
 
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
   return {
+    // case_insensitive: true, //?????????
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [
+      hljs.COMMENT(
+        '<!--',
+        '-->',
+        {
+          relevance: 10
+        }
+      ),
+      hljs.COMMENT('{\\*', '\\*}'), // C_BLOCK_COMMENT_MODE の真似
       hljs.COMMENT(
         '///',
         '$',
