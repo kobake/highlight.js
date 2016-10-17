@@ -156,7 +156,24 @@ function(hljs) {
           ]
         }
       ),
-      // スクリプト部
+      // スタイル部 (<style></style>)
+      {
+        className: 'tag',
+        /*
+        The lookahead pattern (?=...) ensures that 'begin' only matches
+        '<style' as a single word, followed by a whitespace or an
+        ending braket. The '$' is needed for the lexeme to be recognized
+        by hljs.subMode() that tests lexemes outside the stream.
+        */
+        begin: '<style(?=\\s|>|$)', end: '>',
+        keywords: {name: 'style'},
+        contains: [TAG_INTERNALS],
+        starts: {
+          end: '</style>', returnEnd: true,
+          subLanguage: ['css', 'xml']
+        }
+      },
+      // スクリプト部 (<script></script>)
       {
         className: 'tag',
         // See the comment in the <style tag about the lookahead pattern
@@ -167,6 +184,17 @@ function(hljs) {
           end: '\<\/script\>', returnEnd: true,
           subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
         }
+      },
+      // HTMLタグ部？
+      {
+        className: 'tag',
+        begin: '</?', end: '/?>',
+        contains: [
+          {
+            className: 'name', begin: /[^\/><\s]+/, relevance: 0
+          },
+          TAG_INTERNALS
+        ]
       },
 
       {
