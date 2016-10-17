@@ -166,7 +166,7 @@ d:(^global = 2) ..thisClassMethod(1, 2, "test")
  * Sub-languages support:
  */
 &sql( SELECT * FROM Cinema.Film WHERE Length > 2 )
-&sql( SELECT * FROM Cinema.Film WHERE Length > 2 )
+&sql( SELECT * FROM (Cinema.Film) WHERE Length > 2 )
 &sql( SELECT * FROM Cinema.Film WHERE Length > 2 )
 </code>
 </pre>
