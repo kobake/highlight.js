@@ -1,3 +1,3 @@
 #!/bin/sh
-node tools/build.js :common    
+node tools/build.js -no-compress :common    
 
