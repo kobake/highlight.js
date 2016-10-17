@@ -150,6 +150,27 @@ hoge();
 &lt;/p&gt;
 </code></pre>
 </td>
+<td valign="top">
+	<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+	<!-- cos -->
+	<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+	<div style="margin-bottom: -10px;">cos</div>
+	<pre><code class='language-cos'>#dim test as %Library.Integer
+SET test = 123.099
+set ^global = %request.Content
+Write "Current date """, $ztimestamp, """, result: ", test + ^global = 125.099
+do ##class(Cinema.Utils).AddShow("test") // class method call
+do ##super() ; another one-line comment
+d:(^global = 2) ..thisClassMethod(1, 2, "test")
+/*
+ * Sub-languages support:
+ */
+&sql( SELECT * FROM Cinema.Film WHERE Length > 2 )
+&sql( SELECT * FROM Cinema.Film WHERE Length > 2 )
+&sql( SELECT * FROM Cinema.Film WHERE Length > 2 )
+</code>
+</pre>
+</td>
 </tr>
 </table>
 
