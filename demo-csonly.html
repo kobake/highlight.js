@@ -29,33 +29,8 @@ pre{
 	<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 	<div style="margin-bottom: -10px;">cshtml</div>
 	<pre><code class='language-cshtml'>
-@model BbsSampleDemo.Models.Comment
-@using Microsoft.Owin.Security
-ViewBag.Title = "Details";
-@Html.AntiForgeryToken("aa", 10)
-Html.AntiForgeryToken("aa", 10)
-@{
-  Html.AntiForgeryToken("aa", 10)
-  ViewBag.Title = "Details";
-  class Hoge{
-    public int n;
-    public int m;
-    // foo } bar
-    public void Foo()
-    {
-    }
-  }
-  class Hoge{
-    public int n;
-    public int m;
-    // foo
-    public void Foo()
-    {
-    }
-  }
-  ViewBag.Title = "Details";
-}}
-ViewBag.Title = "Details";
+@Html.AntiForgeryToken("aa", "bb",
+  "cc", 10)
 </code></pre>
 </td>
 </tr>
