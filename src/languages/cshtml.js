@@ -152,15 +152,34 @@ function(hljs) {
         className: 'inline-cs',
         begin: '@',
         starts: {
-          end: '\n',
+          end: '}}',
+          returnEnd: true,
           endCallback: function(value, index){
-            var found = value.indexOf('\n', index);
-            if(found == -1) return null;
-            // 結果
-            var ret = {};
-            ret[0] = "\n";
-            ret.index = found;
-            return ret;
+            var str = value;
+            var re = /\([^()]*\)/;
+            var output = [];
+            var match, parts, last;
+
+            str = str.substring(index);
+            while (match = re.exec(str)) {
+              parts = match[0].split("\uFFFF");
+              if (parts.length < 2) {
+                last = output.push(match[0]) - 1;
+              } else {
+                output[last] = parts[0] + output[last] + parts[1];
+              }
+              str = str.replace(re, new Array(match[0].length + 1).join("X"));
+            }
+            var m = str.match(/^[A-Za-z0-9\.]+/)
+            if(m){
+              var ret = {};
+              ret[0] = "}}";
+              ret.index = index + m[0].length;
+              return ret;
+            }
+            else{
+              return null;
+            }
           },
           subLanguage: 'cs'
         }
