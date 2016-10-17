@@ -134,7 +134,7 @@ function(hljs) {
         className: 'inline-cs',
         begin: '@{', contains: recursiveParen('{', '}'),
         starts: {
-          className: 'inline-cs-end',
+          className: 'inline-cs',
           end: '}', returnEnd: true,
           subLanguage: 'cs'
         }
