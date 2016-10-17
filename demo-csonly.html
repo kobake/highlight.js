@@ -30,8 +30,12 @@ pre{
 	<div style="margin-bottom: -10px;">cshtml</div>
 	<pre><code class='language-cshtml'>
 @model BbsSampleDemo.Models.Comment
+@using Microsoft.Owin.Security
 ViewBag.Title = "Details";
+@Html.AntiForgeryToken("aa", 10)
+Html.AntiForgeryToken("aa", 10)
 @{
+  Html.AntiForgeryToken("aa", 10)
   ViewBag.Title = "Details";
   class Hoge{
     public int n;

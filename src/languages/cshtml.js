@@ -142,6 +142,20 @@ function(hljs) {
         className: 'inline-cs',
         begin: '}}'
       },
+
+      // C# ワンライナー埋め込み部 @Html.Hoge(aaa, aaaa)
+      {
+        className: 'inline-cs',
+        begin: '@model '
+      },
+      {
+        className: 'inline-cs',
+        begin: '@',
+        starts: {
+          end: '\n',
+          subLanguage: 'cs'
+        }
+      },
       
       // cshtml コメント {* ... *}
       hljs.COMMENT('{\\*', '\\*}') // C_BLOCK_COMMENT_MODE の真似
