@@ -44,6 +44,11 @@ pre{
 	<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 	<div style="margin-bottom: -10px;">xml</div>
 	<pre><code class='language-xml'>&lt;hoge&gt;
+&lt;style&gt;
+.abc{
+  color: #fff;
+}
+&lt;/style&gt;
 &lt;html a="bcd"&gt;
 &lt;!-- aaaa --&gt;
 &lt;!-- xxxx
@@ -70,7 +75,14 @@ hoge();
 	<!-- cshtml -->
 	<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 	<div style="margin-bottom: -10px;">cshtml</div>
-	<pre><code class='language-cshtml'>@model BbsSampleDemo.Models.Comment
+	<pre><code class='language-cshtml'>&lt;hoge&gt;
+&lt;style&gt;
+.abc{
+  color: #fff;
+}
+&lt;/style&gt;
+&lt;html a="bcd"&gt;
+@model BbsSampleDemo.Models.Comment
 @{
     ViewBag.Title = "Details";
 }
