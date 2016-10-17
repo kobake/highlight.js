@@ -153,6 +153,15 @@ function(hljs) {
         begin: '@',
         starts: {
           end: '\n',
+          endCallback: function(value, index){
+            var found = value.indexOf('\n', index);
+            if(found == -1) return null;
+            // 結果
+            var ret = {};
+            ret[0] = "\n";
+            ret.index = found;
+            return ret;
+          },
           subLanguage: 'cs'
         }
       },

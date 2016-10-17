@@ -275,6 +275,9 @@ https://highlightjs.org/
           mode.end = /\B|\b/;
         if (mode.end)
           mode.endRe = langRe(mode.end);
+        if(mode.endCallback){
+          
+        }
         mode.terminator_end = reStr(mode.end) || '';
         if (mode.endsWithParent && parent.terminator_end)
           mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
@@ -511,12 +514,21 @@ https://highlightjs.org/
     try {
       var match, count, index = 0;
       while (true) {
-        top.terminators.lastIndex = index;
-        match = top.terminators.exec(value);
-        if (!match)
-          break;
-        count = processLexeme(value.substr(index, match.index - index), match[0]);
-        index = match.index + count;
+        if(top.endCallback){
+          match = top.endCallback(value, index);
+          if (!match)
+            break;
+          count = processLexeme(value.substr(index, match.index - index), match[0]);
+          index = match.index + count;
+        }
+        else {
+          top.terminators.lastIndex = index;
+          match = top.terminators.exec(value);
+          if (!match)
+            break;
+          count = processLexeme(value.substr(index, match.index - index), match[0]);
+          index = match.index + count;
+        }
       }
       processLexeme(value.substr(index));
       for(current = top; current.parent; current = current.parent) { // close dangling modes
