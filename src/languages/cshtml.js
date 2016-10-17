@@ -132,14 +132,16 @@ function(hljs) {
       // C# 埋め込み部 @{ ... }
       {
         className: 'inline-cs',
-        begin: '@{', contains: recursiveParen('{', '}'),
+        begin: '@{',
         starts: {
-          className: 'inline-cs',
-          end: '}', returnEnd: true,
+          end: '}}', returnEnd: true,
           subLanguage: 'cs'
         }
       },
-      
+      {
+        className: 'inline-cs',
+        begin: '}}'
+      },
       
       // cshtml コメント {* ... *}
       hljs.COMMENT('{\\*', '\\*}') // C_BLOCK_COMMENT_MODE の真似
