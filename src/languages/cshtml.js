@@ -1,7 +1,7 @@
 /*
 Language: cshtml
 Author: kobake <pg.koba@gmail.com>
-Category: common, aspnet
+Category: common, template
 */
 
 function(hljs) {
