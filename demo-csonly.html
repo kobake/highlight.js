@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="ja"
+	  data-avail-langs="ja en"
+	  data-author="kobake">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="src/styles/vs.css">
+
+</head>
+<body>
+<h1>demo</h1>
+
+<style>
+pre{
+  border: 1px solid #aaa;
+}
+</style>
+
+
+<table>
+<tr>
+<td valign="top">
+	<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+	<!-- cshtml -->
+	<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+	<div style="margin-bottom: -10px;">cshtml</div>
+	<pre><code class='language-cshtml'>&lt;hoge&gt;
+&lt;style&gt;
+.abc{
+  color: #fff;
+}
+&lt;/style&gt;
+&lt;html a="bcd"&gt;
+@model BbsSampleDemo.Models.Comment
+class Hoge{
+  public int n;
+  public int m;
+  // foo
+  public void Foo()
+  {
+  }
+}
+@{
+  ViewBag.Title = "Details";
+  class Hoge{
+    public int n;
+    public int m;
+    // foo
+    public void Foo()
+    {
+    }
+  }
+  class Hoge{
+    public int n;
+    public int m;
+    // foo
+    public void Foo()
+    {
+    }
+  }
+  ViewBag.Title = "Details";
+}
+
+&lt;!-- aaaa --&gt;
+&lt;!-- xxxx
+yyyy --&gt; --&gt;
+
+aaaa
+{* bb
+cc *}
+bbbb
+
+&lt;h2&gt;Details&lt;/h2&gt;
+
+// aa
+var a = 1;
+&lt;script&gt;
+// aa
+function hoge(){
+  var a = 1;
+  console.log("aa");
+}
+hoge();
+&lt;/script&gt;
+// aa
+
+&lt;div&gt;
+    &lt;h4&gt;Comment&lt;/h4&gt;
+    &lt;hr /&gt;
+    &lt;dl class="dl-horizontal"&gt;
+        &lt;dt&gt;
+            @Html.DisplayNameFor(model =&gt; model.UserName)
+        &lt;/dt&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+&lt;p&gt;
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+&lt;/p&gt;
+</code></pre>
+</td>
+</tr>
+</table>
+	
+
+	<!-- hightlight -->
+	<script src="build/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
